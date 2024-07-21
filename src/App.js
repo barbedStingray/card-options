@@ -1,23 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const boxes = [
+    {
+      className: 'box-1',
+      buttonText: 'dToons',
+      buttonColor: '#00BF9C',
+    },
+    {
+      className: 'box-2',
+      buttonText: 'Collection',
+      buttonColor: '#653EE6',
+    },
+    {
+      className: 'box-3',
+      buttonText: 'Store',
+      buttonColor: '#008BFF',
+    },
+    {
+      className: 'box-4',
+      buttonText: 'Decks',
+      buttonColor: '#FF6500',
+    },
+  ];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        {boxes.map((box, index) => (
+          <div key={index} className={`box ${box.className}`}>
+            <div className="cover">
+              <div className='imageFace'></div>
+              {/* <img src={box.image} alt="" /> */}
+            </div>
+            <button>
+              <div>{box.buttonText}</div>
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

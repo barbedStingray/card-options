@@ -1,38 +1,231 @@
+:root {
+  --color-primary-1: #009b03;
+  --color-primary-2: #653EE6;
+  --color-primary-3: #008BFF;
+  --color-primary-4: #ff0000;
+  --color-button-bg: #2C3138;
+  --color-button-border: #fff;
+  --color-cover-border: limegreen;
+  --color-text-light: #fff;
+  --color-text-dark: #000;
+  --color-text-secondary: rgb(154, 123, 255);
+  --color-background: black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  border: 2px solid red;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: var(--color-background);
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  border: 2px solid gold;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80vw;
+  height: 100vh;
+  margin-left: 6vw;
+  transform: rotateX(23deg) rotateZ(-9deg) rotateY(15deg) scale3d(1, 1, -0.9);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.imageFace {
+  width: 120px;
+  height: 170px;
+  background-color: grey;
+  border: 2px solid yellow;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+  width: 180px;
+  height: 48px;
+  background-color: var(--color-button-bg);
+  margin-top: 20px;
+  /* overflow: hidden; */
+  transform: scale(0.7);
+}
+
+button::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 100%;
+  transition: all 1s cubic-bezier(0.25, .75, 0.5, 1.25);
+}
+
+.box {
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease-out;
+  will-change: transform;
+}
+
+.box:hover button::before {
+  width: 120%;
+  opacity: .8;
+}
+
+.box-1:hover button::before {
+  background-color: var(--color-primary-1);
+}
+
+.box-2:hover button::before {
+  background-color: var(--color-primary-2);
+}
+
+.box-3:hover button::before {
+  background-color: var(--color-primary-3);
+}
+
+.box-4:hover button::before {
+  background-color: var(--color-primary-4);
+}
+
+.box:hover .cover {
+  transform: translateY(-14px) scale(1.04);
+}
+
+.box button {
+  color: var(--color-text-light);
+  font-size: 22px;
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+}
+
+.box-1 button {
+  border: 1px solid var(--color-primary-1);
+}
+.box-2 button {
+  border: 1px solid var(--color-primary-2);
+}
+
+.box-3 button {
+  border: 1px solid var(--color-primary-3);
+}
+
+.box-4 button {
+  border: 1px solid var(--color-primary-4);
+}
+
+.box button::after {
+  content: "";
+  top: -85px;
+}
+
+.box-1 button::after {
+  background-color: var(--color-primary-1);
+}
+
+.box-2 button::after {
+  background-color: var(--color-primary-2);
+}
+
+.box-3 button::after {
+  background-color: var(--color-primary-3);
+}
+
+.box-4 button::after {
+  background-color: var(--color-primary-4);
+}
+
+.cover {
+  border: 2px solid var(--color-cover-border);
+  transition: all 400ms ease-in-out;
+  will-change: transform;
+}
+
+.cover img {
+  transition: all 260ms ease-in-out;
+}
+
+.box .cover::after {
+  content: "";
+  z-index: -99;
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  display: block;
+  width: 125px;
+  height: 165px;
+  opacity: 0;
+  filter: blur(20px);
+  background-size: 160px 214px;
+  transition: all 0.25s ease-in-out;
+  transform: scale(0.6);
+}
+
+.box:hover .cover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.box-1 .cover::after {
+  background-color: var(--color-primary-1);
+}
+
+.box-2 .cover::after {
+  background-color: var(--color-primary-2);
+}
+
+.box-3 .cover::after {
+  background-color: var(--color-primary-3);
+}
+
+.box-4 .cover::after {
+  background-color: var(--color-primary-4);
+}
+
+.box-1 button div::before,
+.box-2 button div::before,
+.box-3 button div::before,
+.box-4 button div::before {
+  position: relative;
+  top: -44px;
+  left: 50px;
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.box-1 button div::before {
+  content: 'dToons';
+  color: var(--color-primary-1);
+}
+
+.box-2 button div::before {
+  content: 'Collection';
+  color: var(--color-text-secondary);
+}
+
+.box-3 button div::before {
+  content: 'Shop Toons';
+  color: var(--color-primary-3);
+}
+
+.box-4 button div::before {
+  content: 'Decks';
+  color: var(--color-primary-4);
+}
+
+.box-1:hover button div::before,
+.box-2:hover button div::before,
+.box-3:hover button div::before,
+.box-4:hover button div::before {
+  color: var(--color-text-light);
 }
