@@ -72,8 +72,9 @@ button::before {
   display: flex;
   align-items: center;
   flex-direction: column;
-  transition: all 0.3s ease-out;
-  will-change: transform;
+  /* what does this do? */
+  /* transition: all 2.3s ease-out;
+  will-change: transform; */
 }
 
 .box:hover button::before {
@@ -147,13 +148,15 @@ button::before {
 
 .cover {
   border: 2px solid var(--color-cover-border);
-  transition: all 400ms ease-in-out;
+  /* moves card up */
+  transition: all 0.4s ease-in-out;
   will-change: transform;
 }
 
+/* what does this do?
 .cover img {
-  transition: all 260ms ease-in-out;
-}
+  transition: all 0.2s ease-in-out;
+} */
 
 .box .cover::after {
   content: "";
@@ -167,6 +170,7 @@ button::before {
   opacity: 0;
   filter: blur(20px);
   background-size: 160px 214px;
+  /* background color appears */
   transition: all 0.25s ease-in-out;
   transform: scale(0.6);
 }
@@ -192,10 +196,7 @@ button::before {
   background-color: var(--color-primary-4);
 }
 
-.box-1 button div::before,
-.box-2 button div::before,
-.box-3 button div::before,
-.box-4 button div::before {
+.box button div::before {
   position: relative;
   top: -44px;
   left: 50px;
@@ -223,9 +224,6 @@ button::before {
   color: var(--color-primary-4);
 }
 
-.box-1:hover button div::before,
-.box-2:hover button div::before,
-.box-3:hover button div::before,
-.box-4:hover button div::before {
+.box:hover button div::before {
   color: var(--color-text-light);
 }
